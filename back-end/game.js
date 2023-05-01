@@ -6,7 +6,7 @@ export class Game {
   bot;
 
   constructor() {
-    this.player = new Player()
-    this.bot = new Player()
+    this.player = new Player();
+    this.bot = new Player();
   }
 };
