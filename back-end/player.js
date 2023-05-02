@@ -1,9 +1,10 @@
 
-import { initialGrid } from "./grid";
+var {initialGrid} = require('./grid.js');
 
-export class Player {
+class Player {
   grid;
   constructor() {
+    console.log('grid', initialGrid)
     this.grid = initialGrid;
   }
 
@@ -12,6 +13,7 @@ export class Player {
   }
 
   getRowOrColumn() {
+    return 9
     return this.getRandomInt(9);
   }
 
@@ -23,21 +25,34 @@ export class Player {
     if(randomInt === 3) return "LEFT"
   }
 
-  generateGrid() {
-    const row = this.getRowOrColumn();
-    const column = this.getRowOrColumn();
+  placeShip(ship) {
+    const startingRow = this.getRowOrColumn();
+    const startingColumn = this.getRowOrColumn();
+    // const startingRow = 9;
+    // const startingColumn = 9;
 
-    if(grid[row][column] === false) {
-      row();
-      column();
+    if(this.grid[startingRow][startingColumn] === null) {
+      startingRow();
+      startingColumn();
     }
-    const direction = this.getDirection();
+    // const direction = this.getDirection();
+    const direction = "UP";
 
     switch (direction) {
       // check there are enough spaces before loop
       // loop through each to check if available
       case "UP":
-
+        let endingRow = (startingRow + 1) - ship.spaces.length;
+        if(ship.spaces.length < startingRow + 1) return this.placeShip(ship);
+        const openSpaces = grid.filter((row, index) => {
+          if(index > startingRow && index < endingRow ) return false;
+          if(row[startingColumn] === null) return true;
+        })
+        if(openSpaces.length === ship.spaces.length) {
+          console.log(`ship ${ship.name} fits`)
+        } else {
+          console.log(`ship ${ship.name} does not fit`)
+        }
         break;
       case "RIGHT":
 
@@ -53,3 +68,5 @@ export class Player {
   }
 
 };
+
+module.exports = {Player}

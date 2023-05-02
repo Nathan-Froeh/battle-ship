@@ -1,12 +1,15 @@
 
-export const initialGrid = [
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
+const initialGrid = [
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null],
+  [null, null, null, null, null, null, null, null, null, null]
 ];
+
+module.exports = {initialGrid}
